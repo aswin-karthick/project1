@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patlu's Bright Idea</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f0f4f8;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 2.5rem 3.5rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 20px;
+      transition: opacity 0.3s ease;
+    }
+
+    button {
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
+
+    .close-button {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 1.8rem;
+      text-decoration: none;
+      color: #555;
+      font-weight: bold;
+      background: #fff;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .close-button:hover {
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      color: #c0392b;
+      transform: rotate(90deg);
+    }
+
+    .idea-popup {
+      display: none;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ffbb00;
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: pop 0.5s ease-out;
+    }
+
+    @keyframes pop {
+      0% { transform: translateX(-50%) scale(0.5); opacity: 0; }
+      100% { transform: translateX(-50%) scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <a href="X:\New folder\index.html" class="close-button" title="Go back">✕</a>
+
+  <div class="container">
+    <div id="ideaText" class="idea-popup">💡 Idea!</div>
+    <img id="bulbImage" src="https://www.w3schools.com/js/pic_bulboff.gif" alt="Bulb">
+    <br />
+    <button id="toggleBtn">Turn ON</button>
+  </div>
+
+  <script>
+    const bulb = document.getElementById('bulbImage');
+    const button = document.getElementById('toggleBtn');
+    const idea = document.getElementById('ideaText');
+
+    let isOn = false;
+
+    button.addEventListener('click', () => {
+      if (isOn) {
+        bulb.src = "https://www.w3schools.com/js/pic_bulboff.gif";
+        button.textContent = "Turn ON";
+        idea.style.display = "none";
+      } else {
+        bulb.src = "https://www.w3schools.com/js/pic_bulbon.gif";
+        button.textContent = "Turn OFF";
+        idea.style.display = "block";
+      }
+      isOn = !isOn;
+    });
+  </script>
+</body>
+</html>
